@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import MeCab
 import csv
 import sys
 import collections

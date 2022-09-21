@@ -3,7 +3,6 @@
 import pprint
 import requests
 import sys
-import MeCab
 import csv
 from janome.tokenizer import Tokenizer
 import time

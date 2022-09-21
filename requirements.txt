@@ -1,6 +1,5 @@
 beautifulsoup4==4.11.1
 Janome==0.4.2
-MeCab==0.996.3
 pandas==1.4.3
 Pillow==9.2.0
 requests==2.28.1
