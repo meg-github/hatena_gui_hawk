@@ -6,12 +6,12 @@ import pandas as pd
 from st_aggrid import AgGrid, DataReturnMode, GridUpdateMode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 import pickle
+import collections
 # # 外部pyファイル
-sys.path.append('../functions/')
+sys.path.append('./functions/')
 import scrape_user_comment
 import analyze_user
 import analyze_text_janome
-import collections
 
 # --------functions---------
 
