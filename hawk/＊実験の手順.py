@@ -32,7 +32,7 @@ st.markdown(markdown)
 st.subheader("タスク画面の説明")
 st.write("タブ：「タスク1」「タスク2」を開くと、以下のような画面が表示されます。"
 "画面の構成は以下のようになっています。")
-image = Image.open('https://github.com/meg-github/hatena_gui_hawk/tree/main/hawk/fig_exp.png')
+image = Image.open('https://github.com/meg-github/hatena_gui_hawk/blob/main/hawk/fig_exp.png')
 st.image(image, caption='画面構成',use_column_width="auto")
 "①：ニュース記事のタイトルです。クリックすることで記事内容を確認することができます。"
 "②：ニュース記事の本文です。記事内容をお読みいただいた上でアンケートに回答してください。"
