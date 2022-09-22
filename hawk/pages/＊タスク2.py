@@ -9,10 +9,10 @@ import pickle
 import collections
 
 # # 外部pyファイル
-sys.path.append('./functions/')
-import functions.scrape_user_comment 
-import functions.analyze_user
-import functions.analyze_text_janome
+# sys.path.append('./functions/')
+from functions import scrape_user_comment 
+from functions import analyze_user
+from functions import analyze_text_janome
 
 
 # --------functions---------
