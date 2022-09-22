@@ -5,9 +5,3 @@ Pillow==9.2.0
 requests==2.28.1
 streamlit==1.11.0
 streamlit-aggrid==0.2.3
-
-
-
-hawk/functions/analyze_text_janome.py
-hawk/functions/scrape_user_comment.py
-hawk/functions/analyze_user.py
