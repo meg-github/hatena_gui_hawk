@@ -8,9 +8,9 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 import pickle
 import collections
 # # 外部pyファイル
-import functions.scrape_user_comment as scrape_user_comment
-import functions.analyze_user as analyze_user
-import functions.analyze_text_janome as analyze_text_janome
+import ..functions.scrape_user_comment as scrape_user_comment
+import ..functions.analyze_user as analyze_user
+import ..functions.analyze_text_janome as analyze_text_janome
 
 # --------functions---------
 
