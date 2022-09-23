@@ -7,6 +7,7 @@ from st_aggrid import AgGrid, DataReturnMode, GridUpdateMode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 import pickle
 import collections
+import codecs
 
 # # 外部pyファイル
 # sys.path.append('./functions/')
@@ -27,9 +28,12 @@ def func_aggrids_bookmarks(df):   # st_aggridを使ってデータの設定をする
 # -----------------
 st.header("タスク2")
 "以下の記事を読んで，「質問回答」タブから質問に回答してください．"
+# !!!なぜかこの項目だけエラー吐くので（多分使われてる文字の問題），codecsをはさんで回避しています
+file_kiji = codecs.open("./data_kiji/kijilist.csv", "r", "Shift-JIS", "ignore")
+file_sentdata = codecs.open("./data_kiji/list_sentdata.csv'", "r", "Shift-JIS", "ignore")
+kijilist = pd.read_csv(file_kiji, header=0)
+sentdata = pd.read_csv(file_sentdata, header=0, dtype=str)
 
-kijilist = pd.read_csv('./data_kiji/kijilist.csv', header=0)
-sentdata = pd.read_csv('./data_kiji/list_sentdata.csv', header=0, dtype=str)
 target_kiji = kijilist[kijilist['task']==2]
 target_sentdata = sentdata[sentdata['title'].isin(target_kiji['title'])]
 
