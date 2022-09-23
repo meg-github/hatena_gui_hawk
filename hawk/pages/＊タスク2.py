@@ -7,14 +7,11 @@ from st_aggrid import AgGrid, DataReturnMode, GridUpdateMode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 import pickle
 import collections
-import codecs
-
 # # 外部pyファイル
 # sys.path.append('./functions/')
 import functions.scrape_user_comment as scrape_user_comment
 import functions.analyze_user as analyze_user
 import functions.analyze_text_janome as analyze_text_janome
-
 
 # --------functions---------
 
@@ -26,12 +23,12 @@ def func_aggrids_bookmarks(df):   # st_aggridを使ってデータの設定をする
 	return(gridoptions)
 
 # -----------------
-st.header("タスク2")
+st.header("タスク1")
 "以下の記事を読んで，「質問回答」タブから質問に回答してください．"
+
 kijilist = pd.read_csv('./data_kiji/kijilist.csv', header=0)
 sentdata = pd.read_csv('./data_kiji/list_sentdata.csv', header=0,dtype=str)
-
-target_kiji = kijilist[kijilist['task']==1]
+target_kiji = kijilist[kijilist['task']==2]
 target_sentdata = sentdata[sentdata['title'].isin(target_kiji['title'])]
 
 for line in target_kiji.itertuples():
@@ -55,5 +52,3 @@ for line in target_kiji.itertuples():
 
 			gridoptions = func_aggrids_bookmarks(df_commentlist)
 			table = AgGrid(df_commentlist,gridOptions=gridoptions,fit_columns_on_grid_load=True)
-			
-
