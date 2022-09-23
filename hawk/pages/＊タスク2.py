@@ -23,12 +23,12 @@ def func_aggrids_bookmarks(df):   # st_aggridを使ってデータの設定を�
 	return(gridoptions)
 
 # -----------------
-st.header("タスク1")
+st.header("タスク2")
 "以下の記事を読んで，「質問回答」タブから質問に回答してください．"
 
 kijilist = pd.read_csv('./data_kiji/kijilist.csv', header=0)
 sentdata = pd.read_csv('./data_kiji/list_sentdata.csv', header=0,dtype=str)
-target_kiji = kijilist[kijilist['task']==1]
+target_kiji = kijilist[kijilist['task']==2]
 target_sentdata = sentdata[sentdata['title'].isin(target_kiji['title'])]
 
 for line in target_kiji.itertuples():
