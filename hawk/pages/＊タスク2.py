@@ -9,7 +9,7 @@ import pickle
 import collections
 
 # # 翌何pyファイル
-sys.path.append('.functions/')
+sys.path.append('../functions/')
 import scrape_user_comment 
 import analyze_user
 import analyze_text_janome
