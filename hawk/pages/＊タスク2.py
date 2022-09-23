@@ -8,16 +8,16 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 import pickle
 import collections
 
-# # å¤–éƒ¨pyãƒ•ã‚¡ã‚¤ãƒ«
-# sys.path.append('./functions/')
-from ..functions import scrape_user_comment 
-from ..functions import analyze_user
-from ..functions import analyze_text_janome
+# # Íâ²¿py¥Õ¥¡¥¤¥ë
+sys.path.append('.functions/')
+import scrape_user_comment 
+import analyze_user
+import analyze_text_janome
 
 
 # --------functions---------
 
-def func_aggrids_bookmarks(df):   # st_aggridã‚’ä½¿ã£ã¦ãƒ‡ãƒ¼ã‚¿ã®è¨­å®šã‚’ã™ã‚‹
+def func_aggrids_bookmarks(df):   # st_aggrid¤òÊ¹¤Ã¤Æ¥Ç©`¥¿¤ÎÔO¶¨¤ò¤¹¤ë
 	data_view = GridOptionsBuilder.from_dataframe(df)
 	data_view.configure_pagination(enabled=True)
 	data_view.configure_default_column(editable=False,groupable=True,autoHeight=True, wrapText=True)
@@ -25,8 +25,8 @@ def func_aggrids_bookmarks(df):   # st_aggridã‚’ä½¿ã£ã¦ãƒ‡ãƒ¼ã‚¿ã®è¨­å®šã‚’ã
 	return(gridoptions)
 
 # -----------------
-st.header("ã‚¿ã‚¹ã‚¯2")
-"ä»¥ä¸‹ã®è¨˜äº‹ã‚’èª­ã‚“ã§ï¼Œã€Œè³ªå•å›ç­”ã€ã‚¿ãƒ–ã‹ã‚‰è³ªå•ã«å›ç­”ã—ã¦ãã ã•ã„ï¼"
+st.header("¥¿¥¹¥¯2")
+"ÒÔÏÂ¤ÎÓ›ÊÂ¤òÕi¤ó¤Ç£¬¡¸Ù|†–»Ø´ğ¡¹¥¿¥Ö¤«¤éÙ|†–¤Ë»Ø´ğ¤·¤Æ¤¯¤À¤µ¤¤£®"
 
 kijilist = pd.read_csv('./data_kiji/kijilist.csv', header=0)
 sentdata = pd.read_csv('./data_kiji/list_sentdata.csv', header=0,dtype=str)
@@ -38,9 +38,9 @@ for line in target_kiji.itertuples():
 		sent = target_sentdata[target_sentdata["title"] == line.title]
 		st.write(line.content)
 		# sentidata_kiji = analyze_text_janome.analyze(line.content)
-		st.text('æ„Ÿæƒ…èªã®å‰²åˆ: '+sent.sent_total.values+
-			' ãƒã‚¸ãƒ†ã‚£ãƒ–ãªèªã®å‰²åˆ: '+sent.sent_p.values+
-			' ãƒã‚¬ãƒ†ã‚£ãƒ–ãªèªã®å‰²åˆ: '+sent.sent_n.values)
+		st.text('¸ĞÇéÕZ¤Î¸îºÏ: '+sent.sent_total.values+
+			' ¥İ¥¸¥Æ¥£¥Ö¤ÊÕZ¤Î¸îºÏ: '+sent.sent_p.values+
+			' ¥Í¥¬¥Æ¥£¥Ö¤ÊÕZ¤Î¸îºÏ: '+sent.sent_n.values)
 		with open('./data_kiji/'+str(line.title), "rb") as comments:
 			commentlist = pickle.load(comments)
 			# for key,value in zip(commentlist.keys(),commentlist.values()):
@@ -50,7 +50,7 @@ for line in target_kiji.itertuples():
 				"Comment":commentlist.values()
 			})
 			# sentidata_comment = analyze_text_janome.analyze(list(df_commentlist["Comment"]))
-			# st.write('æ„Ÿæƒ…èªã®å‰²åˆ: '+str(sentidata_comment[0])+' ãƒã‚¸ãƒ†ã‚£ãƒ–ãªèªã®å‰²åˆ: '+str(sentidata_comment[1])+' ãƒã‚¬ãƒ†ã‚£ãƒ–ãªèªã®å‰²åˆ: '+str(sentidata_comment[2]))
+			# st.write('¸ĞÇéÕZ¤Î¸îºÏ: '+str(sentidata_comment[0])+' ¥İ¥¸¥Æ¥£¥Ö¤ÊÕZ¤Î¸îºÏ: '+str(sentidata_comment[1])+' ¥Í¥¬¥Æ¥£¥Ö¤ÊÕZ¤Î¸îºÏ: '+str(sentidata_comment[2]))
 
 			gridoptions = func_aggrids_bookmarks(df_commentlist)
 			table = AgGrid(df_commentlist,gridOptions=gridoptions,fit_columns_on_grid_load=True)
