@@ -31,8 +31,8 @@ st.header("タスク2")
 # !!!なぜかこの項目だけエラー吐くので（多分使われてる文字の問題），codecsをはさんで回避しています
 file_kiji = codecs.open("./data_kiji/kijilist.csv", "r", "Shift-JIS", "ignore")
 file_sentdata = codecs.open("./data_kiji/list_sentdata.csv'", "r", "Shift-JIS", "ignore")
-kijilist = pd.read_csv(file_kiji, header=0)
-sentdata = pd.read_csv(file_sentdata, header=0, dtype=str)
+kijilist = pd.read_table(file_kiji, header=0)
+sentdata = pd.read_table(file_sentdata, header=0, dtype=str)
 
 target_kiji = kijilist[kijilist['task']==2]
 target_sentdata = sentdata[sentdata['title'].isin(target_kiji['title'])]
