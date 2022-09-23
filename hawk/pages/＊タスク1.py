@@ -26,8 +26,8 @@ def func_aggrids_bookmarks(df):   # st_aggridを使ってデータの設定を�
 st.header("タスク1")
 "以下の記事を読んで，「質問回答」タブから質問に回答してください．"
 
-kijilist = pd.read_csv('./data_kiji/kijilist.csv', header=0)
-sentdata = pd.read_csv('./data_kiji/list_sentdata.csv', header=0,dtype=str)
+kijilist = pd.read_csv('./data_kiji/kijilist.csv', header=0,encoding='shift_jis')
+sentdata = pd.read_csv('./data_kiji/list_sentdata.csv', header=0,dtype=str,encoding='shift_jis')
 target_kiji = kijilist[kijilist['task']==1]
 target_sentdata = sentdata[sentdata['title'].isin(target_kiji['title'])]
 
