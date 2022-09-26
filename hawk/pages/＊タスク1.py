@@ -24,7 +24,7 @@ def func_aggrids_bookmarks(df):   # st_aggridを使ってデータの設定を�
 
 # -----------------
 st.header("タスク1")
-"以下の記事を読んで，「質問回答」タブから質問に回答してください．"
+"以下の記事を読んで，ページ下部の質問に回答してください．"
 
 kijilist = pd.read_csv('./data_kiji/kijilist.csv', header=0)
 sentdata = pd.read_csv('./data_kiji/list_sentdata.csv', header=0,dtype=str)
@@ -52,3 +52,9 @@ for line in target_kiji.itertuples():
 
 			gridoptions = func_aggrids_bookmarks(df_commentlist)
 			table = AgGrid(df_commentlist,gridOptions=gridoptions,fit_columns_on_grid_load=True)
+
+
+st.components.v1.html(
+'<iframe width="95%" src="https://docs.google.com/forms/d/e/1FAIpQLScezCAj9ju9SYZKEFzbykPJpWu4WU_QwMfMhyTF-fJ-6YpKQA/viewform?embedded=true" width="640" height="2000" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>',height = 2000)
+
+
