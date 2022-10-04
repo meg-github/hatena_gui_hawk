@@ -36,9 +36,9 @@ for line in target_kiji.itertuples():
 		sent = target_sentdata[target_sentdata["title"] == line.title]
 		st.write(line.content)
 		# sentidata_kiji = analyze_text_janome.analyze(line.content)
-		st.text('感情語の割合: '+sent.sent_total.values+
-			' ポジティブな語の割合: '+sent.sent_p.values+
-			' ネガティブな語の割合: '+sent.sent_n.values)
+		st.text('コメントに含まれる感情語の割合（％）: '+sent.sent_total.values+
+			' ポジティブな語の割合（％）: '+sent.sent_p.values+
+			' ネガティブな語の割合（％）: '+sent.sent_n.values)
 		with open('./data_kiji/'+str(line.title), "rb") as comments:
 			commentlist = pickle.load(comments)
 			# for key,value in zip(commentlist.keys(),commentlist.values()):
