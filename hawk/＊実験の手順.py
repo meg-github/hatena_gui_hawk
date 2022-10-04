@@ -30,7 +30,7 @@ markdown = '''
 st.markdown(markdown)
 
 st.subheader("タスク画面の説明")
-st.video(, format="https://raw.githubusercontent.com/meg-github/hatena_gui_ant/main/ant/movie_ant.mp4", start_time=0)
+st.video("https://raw.githubusercontent.com/meg-github/hatena_gui_ant/main/ant/movie_ant.mp4", format="video/mp4", start_time=0)
 
 # st.write("タブ：「タスク1」「タスク2」を開くと、以下のような画面が表示されます。"
 # "画面の構成は以下のようになっています。")
